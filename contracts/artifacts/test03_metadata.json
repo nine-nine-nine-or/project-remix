@@ -9,16 +9,16 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "newAddress",
+						"name": "to",
 						"type": "address"
 					},
 					{
-						"internalType": "uint256",
-						"name": "balance",
-						"type": "uint256"
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
 					}
 				],
-				"name": "addUserBalance",
+				"name": "addTransaction",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -27,53 +27,49 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "user",
+						"name": "uid",
 						"type": "address"
-					}
-				],
-				"name": "getBalances",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "getLeaderboard",
-				"outputs": [
-					{
-						"internalType": "address[]",
-						"name": "",
-						"type": "address[]"
 					},
 					{
-						"internalType": "uint256[]",
-						"name": "",
-						"type": "uint256[]"
+						"internalType": "uint256",
+						"name": "balances",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint16",
+						"name": "age",
+						"type": "uint16"
 					}
 				],
-				"stateMutability": "view",
+				"name": "addUser",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
 				"inputs": [
 					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"name": "userAddress",
-				"outputs": [
-					{
 						"internalType": "address",
 						"name": "",
 						"type": "address"
+					}
+				],
+				"name": "users",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "uid",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "balances",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint16",
+						"name": "age",
+						"type": "uint16"
 					}
 				],
 				"stateMutability": "view",
@@ -93,7 +89,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/8_mappingTest03.sol": "test03"
+			"contracts/11_structTest03.sol": "test03"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -107,11 +103,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/8_mappingTest03.sol": {
-			"keccak256": "0x9f0052f03b5d24492eb1f6d157c12a433485a13d25d969d66d2cba9d7e5015c9",
+		"contracts/11_structTest03.sol": {
+			"keccak256": "0x01868c416a131edba249ec6e8aaf52653e6ee5d5e147cb4a8e204966ea7af0dd",
+			"license": "MIT",
 			"urls": [
-				"bzz-raw://c23b1284abaf50f3669c7c0242cb427908c97633b6c77d3fcc71c966a1ec804b",
-				"dweb:/ipfs/QmVCwf91Sw5Ma3CikSSW1Hq5rCoJMdxAKSXLDQDS155dif"
+				"bzz-raw://ea969b6b36f88f70fcb9378d139067c7673c37fcdca5f70184d93e9519ab21d9",
+				"dweb:/ipfs/QmQLxNu6b3wogUhuSBFfMkwmWFTjiPTvU2Fu4ckETHGGoV"
 			]
 		}
 	},

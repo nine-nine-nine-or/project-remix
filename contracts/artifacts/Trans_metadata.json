@@ -6,48 +6,78 @@
 	"output": {
 		"abi": [
 			{
+				"anonymous": false,
 				"inputs": [
 					{
+						"indexed": true,
 						"internalType": "address",
 						"name": "from",
 						"type": "address"
 					},
 					{
-						"internalType": "address",
-						"name": "to",
-						"type": "address"
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
 					},
 					{
+						"indexed": false,
 						"internalType": "uint256",
-						"name": "price",
+						"name": "timestamp",
 						"type": "uint256"
 					}
 				],
-				"name": "addOrder",
-				"outputs": [],
-				"stateMutability": "nonpayable",
+				"name": "dopstion",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "balances",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
 				"inputs": [
 					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "getBalances",
+				"outputs": [
+					{
 						"internalType": "uint256",
-						"name": "id",
+						"name": "",
 						"type": "uint256"
 					}
 				],
-				"name": "getOrder",
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "getThisBalances",
 				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					},
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					},
 					{
 						"internalType": "uint256",
 						"name": "",
@@ -59,49 +89,9 @@
 			},
 			{
 				"inputs": [],
-				"name": "num",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"name": "orders",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "id",
-						"type": "uint256"
-					},
-					{
-						"internalType": "address",
-						"name": "buyer",
-						"type": "address"
-					},
-					{
-						"internalType": "address",
-						"name": "saler",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "price",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
+				"name": "trans",
+				"outputs": [],
+				"stateMutability": "payable",
 				"type": "function"
 			}
 		],
@@ -118,7 +108,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/10_structTest02.sol": "test01"
+			"contracts/12_transTest.sol": "Trans"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -132,12 +122,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/10_structTest02.sol": {
-			"keccak256": "0x9c21042064447457e10a3c41ce76801c9f323181dc069bf76e3d5d06dfb62e19",
+		"contracts/12_transTest.sol": {
+			"keccak256": "0x3700e8ec0cd0e97655a278736c75cf7fbfce8c6393b4f762f51580f2a591ee9f",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://98e1106d5a3871c36151bd454ccccccfa14a60651581bc05b1d121e8f248f837",
-				"dweb:/ipfs/QmTY386BpWhUPHLmjN5fBLPNNVrXpcYfucst9VNcycLG5D"
+				"bzz-raw://5f803ced34bfacfa5f187cc46cbf8e7790022e4c56ebb1e4a971335aa976518b",
+				"dweb:/ipfs/QmNs1k6qDKbJfdkY2JMiq1cxnNmRfzYtu97JP2DvnvVPuC"
 			]
 		}
 	},

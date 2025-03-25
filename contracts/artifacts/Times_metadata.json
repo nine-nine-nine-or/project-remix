@@ -1,0 +1,84 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_value",
+						"type": "string"
+					}
+				],
+				"name": "inString",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes",
+						"name": "_value",
+						"type": "bytes"
+					}
+				],
+				"name": "outString",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/16_timesTest01.sol": "Times"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/16_timesTest01.sol": {
+			"keccak256": "0x5a0b60492e42a8f6dfbc321fdce7016dea1fc20c4e8c3c51a620116366cd8fae",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b91352c595bcbe76f4e578b5dd2cdad59a582bd2fa37f1d2a7a24fd496a87b38",
+				"dweb:/ipfs/QmWNqrgLTuvFFgZMrPURjXCGHwJSzLmCV7Uacf1kdzzjua"
+			]
+		}
+	},
+	"version": 1
+}

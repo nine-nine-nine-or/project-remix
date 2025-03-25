@@ -1,0 +1,65 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "getValue",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "willRevert",
+				"outputs": [],
+				"stateMutability": "pure",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/14_exceptionTest01.sol": "ExternalContract"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/14_exceptionTest01.sol": {
+			"keccak256": "0xc60ea4bf4b89627f44edd480bb09b49603bd65e5a2c0797c20e393a25719edde",
+			"urls": [
+				"bzz-raw://b01bb7bfe1ab44d7f4a526880901c91aaf8eb1558e16ad2c3c101e71c81b057b",
+				"dweb:/ipfs/QmVc2H7vSiwHpMYo6qjcpcELdb6KFDRu7X2y8Az6sV63nk"
+			]
+		}
+	},
+	"version": 1
+}

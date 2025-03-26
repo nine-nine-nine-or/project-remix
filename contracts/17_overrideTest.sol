@@ -16,7 +16,6 @@ contract A{
 
 }
 
-
 contract B is A(2){
 
      uint _c =20;

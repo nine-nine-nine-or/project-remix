@@ -8,51 +8,56 @@
 			{
 				"inputs": [
 					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "balances",
+				"outputs": [
+					{
 						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
 					}
 				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_user",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_value",
+						"type": "uint256"
+					}
+				],
+				"name": "getMoney",
+				"outputs": [],
 				"stateMutability": "nonpayable",
-				"type": "constructor"
-			},
-			{
-				"inputs": [],
-				"name": "a",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "add",
-				"outputs": [
+				"inputs": [
 					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
-					}
-				],
-				"stateMutability": "pure",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "value",
-				"outputs": [
+						"internalType": "address",
+						"name": "_user",
+						"type": "address"
+					},
 					{
 						"internalType": "uint256",
-						"name": "",
+						"name": "_value",
 						"type": "uint256"
 					}
 				],
-				"stateMutability": "view",
+				"name": "setMoney",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			}
 		],
@@ -69,7 +74,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/17_overrideTest.sol": "A"
+			"contracts/19_interfaceTest01.sol": "Bank"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -83,12 +88,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/17_overrideTest.sol": {
-			"keccak256": "0x7cc76c4fe76b7b0ac539b4f5eece5c2d540edb45f7cc3866c285126ca917e0f0",
+		"contracts/19_interfaceTest01.sol": {
+			"keccak256": "0xbdf710d8fb79927e1906bd8d4d53a94a65b99109992ab9c8632b93e69895f035",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://8186f388dcd2be63fd672e8501b6deb8b0fb0120617340ab726d53fd48cba198",
-				"dweb:/ipfs/QmVCAS1rUk1U7osiP9ZynraA4EexoRTGZ91oNQuG2h4YZH"
+				"bzz-raw://4e4efceb41eef3dfcf686073d86aca119e6e0cbb88b1a13e608457b2801a48d6",
+				"dweb:/ipfs/QmV7Cku4LdhDwaqbneTg4fUhf8YtwDtMbuA2r2XsXZVTLZ"
 			]
 		}
 	},

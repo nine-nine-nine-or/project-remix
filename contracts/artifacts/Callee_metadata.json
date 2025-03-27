@@ -1,0 +1,70 @@
+{
+	"compiler": {
+		"version": "0.8.29+commit.ab55807c"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"name": "FunctionCalled",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "foo",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/VirtualCollectibles.sol": "Callee"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/VirtualCollectibles.sol": {
+			"keccak256": "0xa42194a2fc73127c6820303f8feec88a575208771f25da91927ae665518662c1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c72cd02f6c4b8f4ecfb4f2545cf3fdc93c2e7e18f87c6431154941aaf14e3e0b",
+				"dweb:/ipfs/QmNvh9RC513pwZSF6MFbrrQVKUpPGWDbrg2V2S3aS2ysHL"
+			]
+		}
+	},
+	"version": 1
+}

@@ -1,0 +1,72 @@
+{
+	"id": "ce229867e52fb05d4f4e8c940276cd21",
+	"_format": "hh-sol-build-info-1",
+	"solcVersion": "0.8.29",
+	"solcLongVersion": "0.8.29+commit.ab55807c",
+	"input": {
+		"language": "Solidity",
+		"sources": {
+			"contracts/VirtualCollectibles.sol": {
+				"content": "// // SPDX-License-Identifier: MIT\r\n// pragma solidity ^0.8.0;\r\n\r\n// import \"@openzeppelin/contracts/token/ERC721/ERC721.sol\";\r\n// import \"@openzeppelin/contracts/utils/Counters.sol\";\r\n// import \"@openzeppelin/contracts/access/Ownable.sol\";\r\n// import \"@openzeppelin/contracts/utils/Strings.sol\";\r\n// import \"@openzeppelin/contracts/utils/Base64.sol\";\r\n\r\n// contract VirtualCollectibles is ERC721, Ownable {\r\n//     using Counters for Counters.Counter;\r\n//     using Strings for uint256;\r\n    \r\n//     Counters.Counter private _tokenIdCounter;\r\n    \r\n//     // 定义收藏品类型\r\n//     enum CollectibleType { \r\n//         DRAGON, \r\n//         WIZARD, \r\n//         KNIGHT, \r\n//         UNICORN, \r\n//         PHOENIX \r\n//     }\r\n    \r\n//     // 定义稀有度等级\r\n//     enum Rarity { \r\n//         COMMON, \r\n//         UNCOMMON, \r\n//         RARE, \r\n//         EPIC, \r\n//         LEGENDARY \r\n//     }\r\n    \r\n//     // 存储每个NFT的属性\r\n//     struct Collectible {\r\n//         CollectibleType cType;\r\n//         Rarity rarity;\r\n//         uint256 strength;\r\n//         uint256 agility;\r\n//         uint256 intelligence;\r\n//         uint256 createdAt;\r\n//     }\r\n    \r\n//     // 稀有度对应的颜色\r\n//     mapping(Rarity => string) private rarityColors;\r\n    \r\n//     // 类型对应的名称\r\n//     mapping(CollectibleType => string) private typeNames;\r\n    \r\n//     // 存储所有NFT的属性\r\n//     mapping(uint256 => Collectible) private collectibles;\r\n    \r\n//     // 稀有度概率分布（百分比）\r\n//     uint256[] private rarityDistribution = [40, 30, 20, 8, 2];\r\n    \r\n//     // 类型概率分布（百分比）\r\n//     uint256[] private typeDistribution = [25, 25, 20, 15, 15];\r\n    \r\n//     constructor() ERC721(\"Virtual Collectibles\", \"VC\") {\r\n//         // 初始化稀有度颜色\r\n//         rarityColors[Rarity.COMMON] = \"#9B9B9B\";\r\n//         rarityColors[Rarity.UNCOMMON] = \"#4CAF50\";\r\n//         rarityColors[Rarity.RARE] = \"#2196F3\";\r\n//         rarityColors[Rarity.EPIC] = \"#9C27B0\";\r\n//         rarityColors[Rarity.LEGENDARY] = \"#FF9800\";\r\n        \r\n//         // 初始化类型名称\r\n//         typeNames[CollectibleType.DRAGON] = \"Dragon\";\r\n//         typeNames[CollectibleType.WIZARD] = \"Wizard\";\r\n//         typeNames[CollectibleType.KNIGHT] = \"Knight\";\r\n//         typeNames[CollectibleType.UNICORN] = \"Unicorn\";\r\n//         typeNames[CollectibleType.PHOENIX] = \"Phoenix\";\r\n//     }\r\n    \r\n//     // 铸造新的收藏品\r\n//     function mintCollectible(address to) public returns (uint256) {\r\n//         _tokenIdCounter.increment();\r\n//         uint256 newTokenId = _tokenIdCounter.current();\r\n//         _safeMint(to, newTokenId);\r\n        \r\n//         // 随机生成属性\r\n//         Collectible memory newCollectible;\r\n//         newCollectible.cType = _getRandomType();\r\n//         newCollectible.rarity = _getRandomRarity();\r\n//         newCollectible.strength = _randomInRange(1, 100);\r\n//         newCollectible.agility = _randomInRange(1, 100);\r\n//         newCollectible.intelligence = _randomInRange(1, 100);\r\n//         newCollectible.createdAt = block.timestamp;\r\n        \r\n//         collectibles[newTokenId] = newCollectible;\r\n        \r\n//         return newTokenId;\r\n//     }\r\n    \r\n//     // 批量铸造\r\n//     function batchMint(address to, uint256 amount) public onlyOwner {\r\n//         for (uint256 i = 0; i < amount; i++) {\r\n//             mintCollectible(to);\r\n//         }\r\n//     }\r\n    \r\n//     // 获取NFT属性\r\n//     function getCollectible(uint256 tokenId) public view returns (Collectible memory) {\r\n//     require(exists(tokenId), \"Token does not exist\"); // 使用公共函数\r\n//         return collectibles[tokenId];\r\n//     }\r\n    \r\n//     // 生成NFT的SVG图像（链上）\r\n//     function _generateSVG(uint256 tokenId) private view returns (string memory) {\r\n//         Collectible memory c = collectibles[tokenId];\r\n//         string memory color = rarityColors[c.rarity];\r\n//         string memory typeName = typeNames[c.cType];\r\n        \r\n//         string memory svg = string(abi.encodePacked(\r\n//             '<svg xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"xMinYMin meet\" viewBox=\"0 0 350 350\">',\r\n//             '<style>.base { fill: white; font-family: serif; font-size: 14px; }</style>',\r\n//             '<rect width=\"100%\" height=\"100%\" fill=\"', color, '\" />',\r\n//             '<text x=\"50%\" y=\"30%\" class=\"base\" dominant-baseline=\"middle\" text-anchor=\"middle\">', typeName, '</text>',\r\n//             '<text x=\"50%\" y=\"40%\" class=\"base\" dominant-baseline=\"middle\" text-anchor=\"middle\">', _rarityToString(c.rarity), '</text>',\r\n//             '<text x=\"50%\" y=\"50%\" class=\"base\" dominant-baseline=\"middle\" text-anchor=\"middle\">Strength: ', uint256(c.strength).toString(), '</text>',\r\n//             '<text x=\"50%\" y=\"60%\" class=\"base\" dominant-baseline=\"middle\" text-anchor=\"middle\">Agility: ', uint256(c.agility).toString(), '</text>',\r\n//             '<text x=\"50%\" y=\"70%\" class=\"base\" dominant-baseline=\"middle\" text-anchor=\"middle\">Intelligence: ', uint256(c.intelligence).toString(), '</text>',\r\n//             '</svg>'\r\n//         ));\r\n        \r\n//         return svg;\r\n//     }\r\n    \r\n//     // 生成NFT的元数据（链上）\r\n//     function tokenURI(uint256 tokenId) public view override returns (string memory) {\r\n//     require(exists(tokenId), \"Token does not exist\"); // 使用公共函数\r\n        \r\n//         Collectible memory c = collectibles[tokenId];\r\n//         string memory typeName = typeNames[c.cType];\r\n//         string memory rarity = _rarityToString(c.rarity);\r\n        \r\n//         string memory attributes = string(abi.encodePacked(\r\n//             '[',\r\n//             '{\"trait_type\": \"Type\", \"value\": \"', typeName, '\"},',\r\n//             '{\"trait_type\": \"Rarity\", \"value\": \"', rarity, '\"},',\r\n//             '{\"trait_type\": \"Strength\", \"value\": ', uint256(c.strength).toString(), '},',\r\n//             '{\"trait_type\": \"Agility\", \"value\": ', uint256(c.agility).toString(), '},',\r\n//             '{\"trait_type\": \"Intelligence\", \"value\": ', uint256(c.intelligence).toString(), '}',\r\n//             ']'\r\n//         ));\r\n        \r\n//         string memory image = string(abi.encodePacked(\r\n//             \"data:image/svg+xml;base64,\",\r\n//             Base64.encode(bytes(_generateSVG(tokenId)))));\r\n        \r\n//         string memory json = Base64.encode(bytes(string(abi.encodePacked(\r\n//             '{\"name\": \"Virtual Collectible #', tokenId.toString(), '\",',\r\n//             '\"description\": \"A unique virtual collectible with randomly generated attributes.\",',\r\n//             '\"image\": \"', image, '\",',\r\n//             '\"attributes\": ', attributes,\r\n//             '}'\r\n//         ))));\r\n        \r\n//         return string(abi.encodePacked(\"data:application/json;base64,\", json));\r\n//     }\r\n    \r\n//     // 辅助函数：随机生成类型\r\n//     function _getRandomType() private view returns (CollectibleType) {\r\n//         uint256 rand = _randomInRange(1, 100);\r\n//         uint256 cumulative = 0;\r\n        \r\n//         for (uint256 i = 0; i < typeDistribution.length; i++) {\r\n//             cumulative += typeDistribution[i];\r\n//             if (rand <= cumulative) {\r\n//                 return CollectibleType(i);\r\n//             }\r\n//         }\r\n        \r\n//         return CollectibleType.DRAGON; // 默认\r\n//     }\r\n    \r\n//     // 辅助函数：随机生成稀有度\r\n//     function _getRandomRarity() private view returns (Rarity) {\r\n//         uint256 rand = _randomInRange(1, 100);\r\n//         uint256 cumulative = 0;\r\n        \r\n//         for (uint256 i = 0; i < rarityDistribution.length; i++) {\r\n//             cumulative += rarityDistribution[i];\r\n//             if (rand <= cumulative) {\r\n//                 return Rarity(i);\r\n//             }\r\n//         }\r\n        \r\n//         return Rarity.COMMON; // 默认\r\n//     }\r\n    \r\n//     // 辅助函数：生成范围内的随机数（伪随机）\r\n//     function _randomInRange(uint256 min, uint256 max) private view returns (uint256) {\r\n//         uint256 random = uint256(keccak256(abi.encodePacked(\r\n//             block.timestamp,\r\n//             block.difficulty,\r\n//             msg.sender,\r\n//             _tokenIdCounter.current()\r\n//         )));\r\n        \r\n//         return (random % (max - min + 1)) + min;\r\n//     }\r\n    \r\n//     // 辅助函数：稀有度枚举转字符串\r\n//     function _rarityToString(Rarity rarity) private pure returns (string memory) {\r\n//         if (rarity == Rarity.COMMON) return \"Common\";\r\n//         if (rarity == Rarity.UNCOMMON) return \"Uncommon\";\r\n//         if (rarity == Rarity.RARE) return \"Rare\";\r\n//         if (rarity == Rarity.EPIC) return \"Epic\";\r\n//         if (rarity == Rarity.LEGENDARY) return \"Legendary\";\r\n//         return \"Unknown\";\r\n//     }\r\n// }"
+			}
+		},
+		"settings": {
+			"optimizer": {
+				"enabled": false,
+				"runs": 200
+			},
+			"outputSelection": {
+				"*": {
+					"": [
+						"ast"
+					],
+					"*": [
+						"abi",
+						"metadata",
+						"devdoc",
+						"userdoc",
+						"storageLayout",
+						"evm.legacyAssembly",
+						"evm.bytecode",
+						"evm.deployedBytecode",
+						"evm.methodIdentifiers",
+						"evm.gasEstimates",
+						"evm.assembly"
+					]
+				}
+			},
+			"remappings": []
+		}
+	},
+	"output": {
+		"errors": [
+			{
+				"component": "general",
+				"errorCode": "3420",
+				"formattedMessage": "Warning: Source file does not specify required compiler version! Consider adding \"pragma solidity ^0.8.29;\"\n--> contracts/VirtualCollectibles.sol\n\n",
+				"message": "Source file does not specify required compiler version! Consider adding \"pragma solidity ^0.8.29;\"",
+				"severity": "warning",
+				"sourceLocation": {
+					"end": -1,
+					"file": "contracts/VirtualCollectibles.sol",
+					"start": -1
+				},
+				"type": "Warning"
+			}
+		],
+		"sources": {
+			"contracts/VirtualCollectibles.sol": {
+				"ast": {
+					"absolutePath": "contracts/VirtualCollectibles.sol",
+					"exportedSymbols": {},
+					"id": 1,
+					"license": "MIT",
+					"nodeType": "SourceUnit",
+					"nodes": [],
+					"src": "8851:0:0"
+				},
+				"id": 0
+			}
+		}
+	}
+}

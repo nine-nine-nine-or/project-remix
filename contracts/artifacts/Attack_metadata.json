@@ -1,0 +1,96 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_etherStoreAddress",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "fallback"
+			},
+			{
+				"inputs": [],
+				"name": "collectEther",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "etherStore",
+				"outputs": [
+					{
+						"internalType": "contract EtherStore",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "pwnEtherStore",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/Attack.sol": "Attack"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/Attack.sol": {
+			"keccak256": "0x7b926f71905a0f80f0f1badaed94f24b34b5ee51bdfeae99828ccaece96e355a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://683f8f0e3040d4088106a57f13666238bcc7087304a696ef92b8a0fc6f26fdfd",
+				"dweb:/ipfs/QmTi7i92hT1SCm8brf3owMXKLkFhJ3XUiuSnFPo5cvaAUc"
+			]
+		},
+		"contracts/EtherStore.sol": {
+			"keccak256": "0xd1b0860ea0c095be25d8499e44e487391aca24c607c1cec95adae2ab38d33cf8",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://77ae62229866148a1bc73ed88b8bc0431b4fd7498181926beeea9299e52be9a7",
+				"dweb:/ipfs/Qmepk3NYqczChtaiYSQWKKffmbjR7hsdroB3oSy4R9pmXW"
+			]
+		}
+	},
+	"version": 1
+}
